@@ -21,3 +21,27 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 
 }).addTo(map);
+
+d3.json(url, function(data) {
+// function styleInfo(feature) {
+  //     return {
+  //         opacity: .5,
+  //         color: "#0000000",
+  //         weight: 0.8
+  //         fillOpacity: .7,
+  //         fillColor: getColor(feature.properties.mag),
+  //         radius: feature.properties.mag * 4
+  //     };
+  //   }
+    
+    function styleInfo(feature) {
+      return {
+        opacity: 1,
+        fillOpacity: 1,
+        fillColor: getColor(feature.properties.mag),
+        color: "#000000",
+        radius: getRadius(feature.properties.mag),
+        stroke: true,
+        weight: 0.5
+      };
+    }})
