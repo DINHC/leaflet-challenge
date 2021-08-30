@@ -20,22 +20,9 @@ var map = L.map('map', {
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     maxZoom: 18, 
-
-
 }).addTo(map);
 
 d3.json(url, function(data) {
-// function styleInfo(feature) {
-  //     return {
-  //         opacity: .5,
-  //         color: "#0000000",
-  //         weight: 0.8
-  //         fillOpacity: .7,
-  //         fillColor: getColor(feature.properties.mag),
-  //         radius: feature.properties.mag * 4
-  //     };
-  //   }
-
     function styleInfo(feature) {
       return {
         opacity: 1,
