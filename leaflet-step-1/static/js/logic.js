@@ -53,13 +53,9 @@ d3.json(url).then(function(data) {
         layer.bindPopup("Magnitude: " + feature.properties.mag + "<br>Location: " + feature.properties.place);
       }
     }).addTo(map);
-      
-    var legend = L.control({
-      position: "bottomright"
-    });
   
     var legend = L.control({
-      position: "bottomright"
+      position: "topright"
     });
   
     legend.onAdd = function() {
