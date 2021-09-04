@@ -56,7 +56,7 @@ d3.json(url).then(function(data) {
   
     var legend = L.control({
       position: "topright"
-    });
+    }).addTo(map);
   
     legend.onAdd = function() {
       var div = L.DomUtil.create("div", "info legend");
@@ -70,9 +70,9 @@ d3.json(url).then(function(data) {
             grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
     }
       return div;
-    };
+    }.addTo(map);
   
-    legend.addTo(map);
+    // legend.addTo(map);
   })
   
 
