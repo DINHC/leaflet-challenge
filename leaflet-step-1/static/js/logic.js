@@ -91,8 +91,31 @@ d3.json(url).then(function(data) {
       }
     }).addTo(map);
       
-
+    var legend = L.control({
+      position: "bottomright"
+    });
+  
+    var legend = L.control({
+      position: "bottomright"
+    });
+  
+    legend.onAdd = function() {
+      var div = L.DomUtil.create("div", "info legend");
+  
+      var grades = [0, 1, 2, 3, 4, 5];
+      var colors = ["#FF0000", "#FF6900", "#FFC100", "#E5FF00", "#8DFF00","#00FF00"];
+ 
+      for (var i = 0; i < grades.length; i++) {
+        div.innerHTML +=
+            '<i style="background:' + colors(grades[i]) + '"></i> ' +
+            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+    }
+      return div;
+    };
+  
+    legend.addTo(map);
   })
+  
 
     
       
