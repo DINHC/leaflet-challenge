@@ -74,7 +74,23 @@ d3.json(url).then(function(data) {
         weight: 0.5
       };
     }
- 
+    function getRadius(magnitude) {
+      if (magnitude === 0) {
+        return 1;
+      }
+      return magnitude * 4;
+    }
+    L.geoJson(data, {
+  
+      pointToLayer: function(feature, latlng) {
+        return L.circleMarker(latlng);
+      },
+      style: styleInfo,
+      onEachFeature: function(feature, layer) {
+        layer.bindPopup("Magnitude: " + feature.properties.mag + "<br>Location: " + feature.properties.place);
+      }
+    }).addTo(map);
+      
 
   })
 
